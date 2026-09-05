@@ -2,73 +2,114 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>🚨 ALERTA DE VÍRUS 🚨</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ SISTEMA COMPROMETIDO ⚠️</title>
 
-    <!-- Fonte clássica anos 2000 -->
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background: #0000AA;
+            background: #000000;
             font-family: "Comic Sans MS", "Arial", cursive;
             text-align: center;
-            padding: 20px;
-            cursor: url('https://cur.cursors-4u.net/cursor/cur-1/cur104.cur'), auto;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .sapo-fundo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.3;
+            animation: piscaSapo 0.3s infinite;
+        }
+
+        @keyframes piscaSapo {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.8; }
         }
 
         .container {
-            background: #FFFFFF;
-            border: 10px ridge #FF00FF;
-            padding: 30px;
-            width: 600px;
-            margin: 50px auto;
-            box-shadow: 10px 10px 0px #FF0000;
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 170, 0.85);
+            border: 8px ridge #FF00FF;
+            padding: 25px;
+            width: 650px;
+            margin: 30px auto;
+            box-shadow: 0 0 50px #FF0000;
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 44px;
             color: #FF0000;
-            text-shadow: 4px 4px 0px #FFFF00;
-            animation: pisca 0.8s infinite;
+            text-shadow: 0 0 20px #FF0000, 4px 4px 0px #FFFF00;
+            animation: pisca 0.4s infinite;
         }
 
         @keyframes pisca {
             0% { opacity: 1; }
-            50% { opacity: 0.2; }
+            50% { opacity: 0.1; }
         }
 
-        .gif {
-            width: 100px;
-            height: 100px;
+        .gif-topo {
+            width: 80px;
+            height: 80px;
+            margin: 0 10px;
         }
 
         .alerta {
             background: #FFFF00;
             color: #FF0000;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
-            padding: 15px;
+            padding: 12px;
             border: 4px dashed #FF0000;
-            margin: 20px 0;
-            animation: pisca 0.5s infinite;
+            margin: 15px 0;
+            animation: pisca 0.3s infinite;
+        }
+
+        .dados {
+            background: #000000;
+            color: #00FF00;
+            font-family: "Courier New", monospace;
+            font-size: 20px;
+            padding: 15px;
+            border: 3px inset #00FFFF;
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .dados span {
+            color: #FFFF00;
         }
 
         .contador {
-            font-size: 72px;
+            font-size: 64px;
             color: #FF00FF;
             font-weight: bold;
             background: #000000;
             display: inline-block;
-            padding: 10px 30px;
+            padding: 5px 35px;
             border: 6px outset #00FFFF;
+            margin: 10px 0;
         }
 
         .botao {
             background: #00FF00;
             color: #000000;
-            font-size: 30px;
+            font-size: 28px;
             font-family: "Comic Sans MS", cursive;
-            padding: 15px 40px;
+            padding: 15px 50px;
             border: 6px outset #FF0000;
-            margin-top: 20px;
+            margin: 15px 0;
             cursor: pointer;
             font-weight: bold;
         }
@@ -79,85 +120,310 @@
         }
 
         marquee {
-            font-size: 20px;
+            font-size: 22px;
             color: #FF00FF;
+            background: #000000;
+            padding: 10px;
+            border: 2px solid #FF0000;
+        }
+
+        .status {
+            font-size: 16px;
+            color: #00FF00;
+            font-family: "Courier New", monospace;
             background: #000000;
             padding: 8px;
         }
 
-        .status {
-            font-size: 18px;
-            color: #008000;
+        .blink {
+            animation: pisca 0.2s infinite;
+        }
+
+        .progresso-wrapper {
+            background: #C0C0C0;
+            width: 90%;
+            margin: 10px auto;
+            height: 28px;
+            border: 3px inset #808080;
+        }
+
+        .progresso-bar {
+            background: #FF0000;
+            width: 0%;
+            height: 100%;
+            color: white;
+            line-height: 28px;
+            font-weight: bold;
             font-family: "Courier New", monospace;
         }
 
-        .blink {
-            animation: pisca 0.3s infinite;
+        .gif-extra {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+        }
+
+        .rodape-gifs {
+            margin-top: 10px;
+        }
+
+        .estatica {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+            background: repeating-linear-gradient(0deg,
+                    rgba(255,255,255,0.03) 0px,
+                    rgba(255,255,255,0.03) 2px,
+                    transparent 2px,
+                    transparent 4px);
+            animation: estaticaMov 0.05s infinite;
+        }
+
+        @keyframes estaticaMov {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+
+        /* Responsivo pra celular */
+        @media (max-width: 700px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+                margin: 10px auto;
+            }
+            h1 { font-size: 28px; }
+            .dados { font-size: 14px; }
+            .contador { font-size: 40px; padding: 5px 20px; }
+            .botao { font-size: 18px; padding: 10px 25px; }
+            .gif-topo { width: 40px; height: 40px; }
+            .alerta { font-size: 16px; }
+            marquee { font-size: 14px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Música de fundo (Windows XP erro, clássico) -->
+    <!-- SAPO PISCANDO EM TELA CHEIA -->
+    <img src="https://media.tenor.com/6sD4MQA_cHwAAAAi/pepe-frog.gif" class="sapo-fundo" id="sapoFundo">
+
+    <div class="estatica"></div>
+
     <audio autoplay loop>
         <source src="https://www.soundjay.com/misc/sounds/buzzer-01.wav" type="audio/wav">
     </audio>
 
     <div class="container">
 
-        <!-- GIFs anos 2000 -->
-        <img src="https://media.tenor.com/x8v1o3VqKlsAAAAi/construction-warning.gif" class="gif">
-        <img src="https://media.tenor.com/Gv2Xh6eB2kYAAAAi/alert-warning.gif" class="gif">
-        <img src="https://media.tenor.com/x8v1o3VqKlsAAAAi/construction-warning.gif" class="gif">
+        <img src="https://media.tenor.com/x8v1o3VqKlsAAAAi/construction-warning.gif" class="gif-topo">
+        <img src="https://media.tenor.com/Gv2Xh6eB2kYAAAAi/alert-warning.gif" class="gif-topo">
+        <img src="https://media.tenor.com/x8v1o3VqKlsAAAAi/construction-warning.gif" class="gif-topo">
 
-        <h1>🚨 VÍRUS DETECTADO 🚨</h1>
+        <h1>🚨 SISTEMA COMPROMETIDO 🚨</h1>
 
         <div class="alerta">
-            ⚠️ SEU CELULAR ESTÁ SENDO HACKEADO ⚠️
+            ⚠️ DADOS CRIPTOGRAFADOS POR <strong style="font-size:32px;">LC</strong> ⚠️
         </div>
 
-        <!-- Barra de progresso estilo Windows 98 -->
-        <p style="font-size:20px; color:#0000AA;">Copiando seus dados...</p>
-        <div style="background:#C0C0C0; width:80%; margin:0 auto; height:30px; border:3px inset #808080;">
-            <div id="progresso" style="background:#0000AA; width:0%; height:100%; color:white; line-height:30px;">
-                0%
-            </div>
+        <!-- Dados DETECTADOS AUTOMATICAMENTE -->
+        <div class="dados" id="infoDados">
+            📱 <span>MODELO:</span> <strong id="modelo">DETECTANDO...</strong><br>
+            🌐 <span>IP:</span> <strong id="ipFalso">CARREGANDO...</strong><br>
+            🔐 <span>CRIPTOGRAFIA:</span> AES-256 (CHAVE: LC-2026)<br>
+            📂 <span>ARQUIVOS AFETADOS:</span> <span id="arquivos">--</span> pastas criptografadas
         </div>
+
+        <p style="color:#FFFFFF; font-size:18px;">⬇️ EXTRAINDO E CRIPTOGRAFANDO DADOS... ⬇️</p>
+        <div class="progresso-wrapper">
+            <div class="progresso-bar" id="progresso">0%</div>
+        </div>
+
+        <div class="contador" id="timer">10</div>
+        <p style="font-size:18px; color:#FFFF00; background:#0000AA; display:inline-block; padding:5px 20px; border:2px solid #FF00FF;">
+            ⏳ TEMPO PARA BLOQUEIO PERMANENTE ⏳
+        </p>
 
         <br>
 
-        <div class="contador" id="timer">10</div>
-        <p style="font-size:18px; color:#FF00FF; background:#FFFF00; display:inline-block; padding:5px 20px;">
-            ⏳ TEMPO RESTANTE ⏳
-        </p>
-
-        <br><br>
-
         <button class="botao" onclick="resgatar()">
-            🔥 CLIQUE AQUI PARA SALVAR 🔥
+            💀 CLIQUE AQUI PARA DESCRIPTOGRAFAR 💀
         </button>
 
         <br><br>
 
         <marquee behavior="scroll" direction="left">
-            🛑 VÍRUS ATIVO 🛑 NÃO DESLIGUE O CELULAR 🛑 LIGUE PARA O SUPORTE 0800-666-0000 🛑
+            🛑 LC RANSOMWARE 🛑 NÃO DESLIGUE 🛑 DADOS SENDO COPIADOS PARA SERVIDOR 🛑 CHAVE DE RECUPERAÇÃO: LC-2026 🛑
         </marquee>
 
-        <p class="status">
-            <span class="blink">▌</span> CONEXÃO: <span style="color:#FF0000;">PERIGO</span> 
-            <span class="blink">▌</span> IP: 192.168.0.<span id="ip">XX</span> 
+        <div class="status">
+            <span class="blink">▌</span> CONEXÃO: <span style="color:#FF0000;">COMPROMETIDA</span>
+            <span class="blink">▌</span> SERVIDOR: <span style="color:#FF0000;">LC-C2</span>
             <span class="blink">▌</span>
-        </p>
+        </div>
 
-        <!-- Assinatura anos 2000 -->
-        <p style="font-size:12px; color:#808080; margin-top:20px;">
-            © 2006 VÍRUS TOTAL™ - Todos os direitos de assustar reservados
+        <div class="rodape-gifs">
+            <img src="https://media.tenor.com/Vg-1JkHn1XkAAAAi/fire-flame.gif" class="gif-extra">
+            <img src="https://media.tenor.com/8d6bVkE3pXEAAAAi/rick-roll-rick.gif" class="gif-extra">
+            <img src="https://media.tenor.com/hcE1ZI6Ye8cAAAAi/skull.gif" class="gif-extra">
+            <img src="https://media.tenor.com/Vg-1JkHn1XkAAAAi/fire-flame.gif" class="gif-extra">
+        </div>
+
+        <p style="font-size:11px; color:#808080; margin-top:15px;">
+            © 2004 LC SECURITY TEAM™ — NENHUM DADO FOI REALMENTE AFETADO
         </p>
 
     </div>
 
     <script>
-        // Contador regressivo
+        // ============================================
+        // DETECÇÃO AUTOMÁTICA DO CELULAR
+        // ============================================
+
+        function detectarCelular() {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+            let modelo = "DESCONHECIDO";
+
+            // iPhone
+            if (/iPhone|iPad|iPod/.test(ua)) {
+                const match = ua.match(/iPhone (?:Simulator\s*)?(\d+[a-zA-Z]?,\d+)/);
+                if (match) {
+                    const modelos = {
+                        '15,2': 'iPhone 14 Pro',
+                        '15,3': 'iPhone 14 Pro Max',
+                        '14,2': 'iPhone 13 Pro',
+                        '14,3': 'iPhone 13 Pro Max',
+                        '14,4': 'iPhone 13 Mini',
+                        '14,5': 'iPhone 13',
+                        '13,1': 'iPhone 12 Mini',
+                        '13,2': 'iPhone 12',
+                        '13,3': 'iPhone 12 Pro',
+                        '13,4': 'iPhone 12 Pro Max',
+                        '12,1': 'iPhone 11',
+                        '12,3': 'iPhone 11 Pro',
+                        '12,5': 'iPhone 11 Pro Max',
+                        '11,2': 'iPhone XS',
+                        '11,4': 'iPhone XS Max',
+                        '11,8': 'iPhone XR',
+                        '10,3': 'iPhone X',
+                        '10,6': 'iPhone X',
+                        '9,1': 'iPhone 7',
+                        '9,3': 'iPhone 7',
+                        '9,2': 'iPhone 7 Plus',
+                        '9,4': 'iPhone 7 Plus',
+                        '8,1': 'iPhone 6s',
+                        '8,2': 'iPhone 6s Plus',
+                        '7,2': 'iPhone 6',
+                        '7,1': 'iPhone 6 Plus'
+                    };
+                    modelo = modelos[match[1]] || 'iPhone (modelo desconhecido)';
+                } else if (/iPhone 15/.test(ua)) {
+                    modelo = 'iPhone 15';
+                } else if (/iPhone 14/.test(ua)) {
+                    modelo = 'iPhone 14';
+                } else if (/iPhone 13/.test(ua)) {
+                    modelo = 'iPhone 13';
+                } else if (/iPhone 12/.test(ua)) {
+                    modelo = 'iPhone 12';
+                } else {
+                    modelo = 'iPhone';
+                }
+            }
+
+            // Android
+            else if (/Android/.test(ua)) {
+                const match = ua.match(/Android\s([\d.]+)/);
+                const versao = match ? match[1] : '';
+
+                // Tenta pegar o modelo pelo userAgent
+                const marcas = {
+                    'SM-G998': 'Samsung Galaxy S21 Ultra',
+                    'SM-G996': 'Samsung Galaxy S21+',
+                    'SM-G991': 'Samsung Galaxy S21',
+                    'SM-G990': 'Samsung Galaxy S21 FE',
+                    'SM-S908': 'Samsung Galaxy S22 Ultra',
+                    'SM-S906': 'Samsung Galaxy S22+',
+                    'SM-S901': 'Samsung Galaxy S22',
+                    'SM-S918': 'Samsung Galaxy S23 Ultra',
+                    'SM-S916': 'Samsung Galaxy S23+',
+                    'SM-S911': 'Samsung Galaxy S23',
+                    'SM-S928': 'Samsung Galaxy S24 Ultra',
+                    'SM-S926': 'Samsung Galaxy S24+',
+                    'SM-S921': 'Samsung Galaxy S24',
+                    'SM-A725': 'Samsung Galaxy A72',
+                    'SM-A525': 'Samsung Galaxy A52',
+                    'SM-A325': 'Samsung Galaxy A32',
+                    'Pixel 8 Pro': 'Google Pixel 8 Pro',
+                    'Pixel 8': 'Google Pixel 8',
+                    'Pixel 7 Pro': 'Google Pixel 7 Pro',
+                    'Pixel 7': 'Google Pixel 7',
+                    'Pixel 6 Pro': 'Google Pixel 6 Pro',
+                    'Pixel 6': 'Google Pixel 6',
+                    'Moto G': 'Motorola Moto G',
+                    'Redmi Note': 'Xiaomi Redmi Note',
+                    'Mi 11': 'Xiaomi Mi 11',
+                    'Mi 12': 'Xiaomi Mi 12',
+                    'Mi 13': 'Xiaomi Mi 13',
+                    'POCO': 'Xiaomi POCO',
+                    'OnePlus': 'OnePlus',
+                    'OPPO': 'OPPO',
+                    'Vivo': 'Vivo',
+                    'Realme': 'Realme'
+                };
+
+                let encontrado = false;
+                for (const [key, value] of Object.entries(marcas)) {
+                    if (ua.includes(key)) {
+                        modelo = value + (versao ? ` (Android ${versao})` : '');
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                if (!encontrado) {
+                    modelo = `Android ${versao}`;
+                }
+            }
+
+            // Desktop (fallback)
+            else if (/Windows/.test(ua)) {
+                modelo = 'PC Windows';
+            } else if (/Mac/.test(ua)) {
+                modelo = 'Mac';
+            } else if (/Linux/.test(ua)) {
+                modelo = 'Linux';
+            }
+
+            return modelo;
+        }
+
+        // ============================================
+        // IP FALSO (mas parece real)
+        // ============================================
+
+        function gerarIP() {
+            return `192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
+        }
+
+        // ============================================
+        // EXECUTA TUDO
+        // ============================================
+
+        const modeloReal = detectarCelular();
+        const ipReal = gerarIP();
+        const arquivosAfetados = Math.floor(Math.random() * 100) + 10;
+
+        document.getElementById('modelo').textContent = modeloReal;
+        document.getElementById('ipFalso').textContent = ipReal;
+        document.getElementById('arquivos').textContent = arquivosAfetados;
+
+        // ============================================
+        // CONTADOR E PROGRESSO
+        // ============================================
+
         let segundos = 10;
         let progresso = 0;
 
@@ -168,37 +434,50 @@
             document.getElementById('progresso').style.width = progresso + '%';
             document.getElementById('progresso').textContent = progresso + '%';
 
-            // Vibra a cada 2 segundos
             if (navigator.vibrate && segundos % 2 === 0) {
-                navigator.vibrate([300, 100, 300]);
+                navigator.vibrate([400, 100, 400]);
+            }
+
+            if (segundos === 5) {
+                document.getElementById('sapoFundo').src = 'https://media.tenor.com/2cM4W7cVQ0EAAAAi/pepe-frog.gif';
             }
 
             if (segundos <= 0) {
                 clearInterval(timerInterval);
                 document.body.innerHTML = `
-                    <div style="background:#000000; color:#00FF00; font-family:'Comic Sans MS'; text-align:center; padding:100px; height:100vh;">
-                        <h1 style="font-size:80px;">😅 PEGADINHA DO NAMORADO!</h1>
-                        <img src="https://media.tenor.com/8d6bVkE3pXEAAAAi/rick-roll-rick.gif" style="width:200px;">
-                        <p style="font-size:30px; color:#FFFF00;">Você foi hackeada... pelo amor! ❤️</p>
-                        <p style="font-size:18px; color:#FF00FF;">Seu namorado é um gênio do susto!</p>
+                    <div style="background:#000000; color:#FF0000; font-family:'Courier New',monospace; text-align:center; padding:50px; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                        <h1 style="font-size:70px; text-shadow:0 0 50px #FF0000; animation:pisca 0.3s infinite;">💀 BLOQUEADO 💀</h1>
+                        <img src="https://media.tenor.com/6sD4MQA_cHwAAAAi/pepe-frog.gif" style="width:300px; border:5px solid #FF0000; border-radius:20px;">
+                        <p style="font-size:30px; color:#FFFF00; margin-top:20px;">TODOS OS DADOS FORAM CRIPTOGRAFADOS POR LC</p>
+                        <p style="font-size:20px; color:#00FF00;">CHAVE DE RECUPERAÇÃO: <strong style="color:#FF00FF;">LC-2026</strong></p>
+                        <div style="background:#0000AA; padding:15px; border:3px solid #FF00FF; margin:15px; text-align:left; font-size:18px; color:#00FF00; font-family:'Courier New',monospace;">
+                            📱 MODELO: <strong style="color:#FFFF00;">${modeloReal}</strong><br>
+                            🌐 IP: <strong style="color:#FFFF00;">${ipReal}</strong><br>
+                            🔐 CRIPTOGRAFIA: AES-256 (LC-2026)
+                        </div>
                         <br>
-                        <button onclick="location.reload()" style="font-size:24px; padding:15px 30px; background:#FF0000; color:white; border:none; border-radius:10px;">
-                            🔄 Clique para resetar o susto
+                        <button onclick="location.reload()" style="font-size:24px; padding:15px 40px; background:#FF0000; color:white; border:4px outset #FFFF00; cursor:pointer; font-weight:bold; font-family:'Comic Sans MS';">
+                            🔄 REINICIAR SISTEMA
                         </button>
+                        <p style="font-size:14px; color:#666; margin-top:30px;">© 2004 LC SECURITY — NADA FOI REALMENTE HACKEADO</p>
                     </div>
                 `;
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes pisca {
+                        0% { opacity: 1; }
+                        50% { opacity: 0.2; }
+                    }
+                `;
+                document.head.appendChild(style);
             }
         }, 1000);
 
-        // Função do botão "resgatar"
         function resgatar() {
             clearInterval(timerInterval);
-            alert("🚨 VOCÊ CAIU NA PEGADINHA! 🚨\n\nSeu namorado te ama e só quis te assustar! 😘\n\n(Clique em OK para voltar)");
+            alert(`⚠️ VOCÊ TENTOU RESGATAR OS DADOS! ⚠️\n\nCelular detectado: ${modeloReal}\nIP: ${ipReal}\n\nMas calma... foi só uma pegadinha! 😅\n(Clique em OK para voltar)`);
             location.reload();
         }
-
-        // IP falso anos 2000
-        document.getElementById('ip').textContent = Math.floor(Math.random() * 99) + 1;
     </script>
 
 </body>
