@@ -2,111 +2,204 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOXBIN</title>
+    <title>🚨 ALERTA DE VÍRUS 🚨</title>
+
+    <!-- Fonte clássica anos 2000 -->
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: #0a0a0a; 
-            color: #00ff00; 
-            font-family: monospace; 
-            padding: 20px;
-            font-size: 14px;
-            min-height: 100vh;
-        }
-        .red { color: #ff0000; }
-        .yellow { color: #ffff00; }
-        #final { 
-            display: none; 
-            position: fixed; 
-            top: 0; left: 0; 
-            width: 100%; height: 100%; 
-            background: #000;
-            justify-content: center; 
-            align-items: center; 
-            flex-direction: column;
+        body {
+            background: #0000AA;
+            font-family: "Comic Sans MS", "Arial", cursive;
             text-align: center;
+            padding: 20px;
+            cursor: url('https://cur.cursors-4u.net/cursor/cur-1/cur104.cur'), auto;
         }
-        #final h1 { 
-            color: #ff0066; 
-            font-size: 50px; 
-            text-shadow: 0 0 20px #ff0066;
-            animation: glitch 1s infinite;
+
+        .container {
+            background: #FFFFFF;
+            border: 10px ridge #FF00FF;
+            padding: 30px;
+            width: 600px;
+            margin: 50px auto;
+            box-shadow: 10px 10px 0px #FF0000;
         }
-        @keyframes glitch {
-            0%,100% { transform: translate(0); }
-            50% { transform: translate(-2px, 2px); }
+
+        h1 {
+            font-size: 48px;
+            color: #FF0000;
+            text-shadow: 4px 4px 0px #FFFF00;
+            animation: pisca 0.8s infinite;
         }
-        .heart { font-size: 80px; margin-bottom: 20px; }
-        button { 
-            margin-top: 30px; 
-            padding: 15px 30px; 
-            background: transparent; 
-            border: 2px solid #ff0066; 
-            color: #ff0066; 
-            font-family: monospace;
+
+        @keyframes pisca {
+            0% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        .gif {
+            width: 100px;
+            height: 100px;
+        }
+
+        .alerta {
+            background: #FFFF00;
+            color: #FF0000;
+            font-size: 28px;
+            font-weight: bold;
+            padding: 15px;
+            border: 4px dashed #FF0000;
+            margin: 20px 0;
+            animation: pisca 0.5s infinite;
+        }
+
+        .contador {
+            font-size: 72px;
+            color: #FF00FF;
+            font-weight: bold;
+            background: #000000;
+            display: inline-block;
+            padding: 10px 30px;
+            border: 6px outset #00FFFF;
+        }
+
+        .botao {
+            background: #00FF00;
+            color: #000000;
+            font-size: 30px;
+            font-family: "Comic Sans MS", cursive;
+            padding: 15px 40px;
+            border: 6px outset #FF0000;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background: #FF0000;
+            color: #FFFFFF;
+        }
+
+        marquee {
+            font-size: 20px;
+            color: #FF00FF;
+            background: #000000;
+            padding: 8px;
+        }
+
+        .status {
             font-size: 18px;
+            color: #008000;
+            font-family: "Courier New", monospace;
+        }
+
+        .blink {
+            animation: pisca 0.3s infinite;
         }
     </style>
 </head>
 <body>
-    <div id="terminal"></div>
-    
-    <div id="final">
-        <div class="heart">❤️</div>
-        <h1>TIAMO MOMO</h1>
-        <p style="color: #00ffff; font-size: 20px;">você foi hackeada pelo amor 💕</p>
-        <button onclick="window.close()">[ FECHAR ]</button>
+
+    <!-- Música de fundo (Windows XP erro, clássico) -->
+    <audio autoplay loop>
+        <source src="https://www.soundjay.com/misc/sounds/buzzer-01.wav" type="audio/wav">
+    </audio>
+
+    <div class="container">
+
+        <!-- GIFs anos 2000 -->
+        <img src="https://media.tenor.com/x8v1o3VqKlsAAAAi/construction-warning.gif" class="gif">
+        <img src="https://media.tenor.com/Gv2Xh6eB2kYAAAAi/alert-warning.gif" class="gif">
+        <img src="https://media.tenor.com/x8v1o3VqKlsAAAAi/construction-warning.gif" class="gif">
+
+        <h1>🚨 VÍRUS DETECTADO 🚨</h1>
+
+        <div class="alerta">
+            ⚠️ SEU CELULAR ESTÁ SENDO HACKEADO ⚠️
+        </div>
+
+        <!-- Barra de progresso estilo Windows 98 -->
+        <p style="font-size:20px; color:#0000AA;">Copiando seus dados...</p>
+        <div style="background:#C0C0C0; width:80%; margin:0 auto; height:30px; border:3px inset #808080;">
+            <div id="progresso" style="background:#0000AA; width:0%; height:100%; color:white; line-height:30px;">
+                0%
+            </div>
+        </div>
+
+        <br>
+
+        <div class="contador" id="timer">10</div>
+        <p style="font-size:18px; color:#FF00FF; background:#FFFF00; display:inline-block; padding:5px 20px;">
+            ⏳ TEMPO RESTANTE ⏳
+        </p>
+
+        <br><br>
+
+        <button class="botao" onclick="resgatar()">
+            🔥 CLIQUE AQUI PARA SALVAR 🔥
+        </button>
+
+        <br><br>
+
+        <marquee behavior="scroll" direction="left">
+            🛑 VÍRUS ATIVO 🛑 NÃO DESLIGUE O CELULAR 🛑 LIGUE PARA O SUPORTE 0800-666-0000 🛑
+        </marquee>
+
+        <p class="status">
+            <span class="blink">▌</span> CONEXÃO: <span style="color:#FF0000;">PERIGO</span> 
+            <span class="blink">▌</span> IP: 192.168.0.<span id="ip">XX</span> 
+            <span class="blink">▌</span>
+        </p>
+
+        <!-- Assinatura anos 2000 -->
+        <p style="font-size:12px; color:#808080; margin-top:20px;">
+            © 2006 VÍRUS TOTAL™ - Todos os direitos de assustar reservados
+        </p>
+
     </div>
 
     <script>
-        const lines = [
-            "DOXBIN v2.0 - SECURE CONNECTION",
-            "Target: [REDACTED]",
-            "--------------------------------",
-            "[+] Initializing breach...",
-            "[+] Bypassing firewall...",
-            "[+] Accessing database...",
-            "",
-            ">>> DUMPING DATA <<<",
-            "",
-            "HEX DUMP:",
-            "7F 45 4C 46 02 01 01 00 | .ELF........",
-            "02 00 3E 00 01 00 00 00 | ..>.........",
-            "",
-            "[*] Name: [TARGET]",
-            "[*] Status: CUTE ASF",
-            "",
-            "[!] CRITICAL ERROR",
-            "[!] UNEXPECTED VARIABLE",
-            "",
-            "[*] Decrypting...",
-            "..."
-        ];
-        
-        const term = document.getElementById('terminal');
-        let i = 0;
-        
-        function addLine() {
-            if (i < lines.length) {
-                const div = document.createElement('div');
-                div.textContent = lines[i];
-                if (lines[i].includes("ERROR")) div.className = "red";
-                if (lines[i].includes(">>>")) div.className = "red";
-                if (lines[i].includes("HEX") || lines[i].includes("Decrypting")) div.className = "yellow";
-                term.appendChild(div);
-                window.scrollTo(0, document.body.scrollHeight);
-                i++;
-                setTimeout(addLine, 200);
-            } else {
-                setTimeout(() => {
-                    document.getElementById('final').style.display = 'flex';
-                    if (navigator.vibrate) navigator.vibrate([200,100,200]);
-                }, 1000);
+        // Contador regressivo
+        let segundos = 10;
+        let progresso = 0;
+
+        const timerInterval = setInterval(() => {
+            segundos--;
+            progresso += 10;
+            document.getElementById('timer').textContent = segundos;
+            document.getElementById('progresso').style.width = progresso + '%';
+            document.getElementById('progresso').textContent = progresso + '%';
+
+            // Vibra a cada 2 segundos
+            if (navigator.vibrate && segundos % 2 === 0) {
+                navigator.vibrate([300, 100, 300]);
             }
+
+            if (segundos <= 0) {
+                clearInterval(timerInterval);
+                document.body.innerHTML = `
+                    <div style="background:#000000; color:#00FF00; font-family:'Comic Sans MS'; text-align:center; padding:100px; height:100vh;">
+                        <h1 style="font-size:80px;">😅 PEGADINHA DO NAMORADO!</h1>
+                        <img src="https://media.tenor.com/8d6bVkE3pXEAAAAi/rick-roll-rick.gif" style="width:200px;">
+                        <p style="font-size:30px; color:#FFFF00;">Você foi hackeada... pelo amor! ❤️</p>
+                        <p style="font-size:18px; color:#FF00FF;">Seu namorado é um gênio do susto!</p>
+                        <br>
+                        <button onclick="location.reload()" style="font-size:24px; padding:15px 30px; background:#FF0000; color:white; border:none; border-radius:10px;">
+                            🔄 Clique para resetar o susto
+                        </button>
+                    </div>
+                `;
+            }
+        }, 1000);
+
+        // Função do botão "resgatar"
+        function resgatar() {
+            clearInterval(timerInterval);
+            alert("🚨 VOCÊ CAIU NA PEGADINHA! 🚨\n\nSeu namorado te ama e só quis te assustar! 😘\n\n(Clique em OK para voltar)");
+            location.reload();
         }
-        
-        setTimeout(addLine, 500);
+
+        // IP falso anos 2000
+        document.getElementById('ip').textContent = Math.floor(Math.random() * 99) + 1;
     </script>
+
 </body>
 </html>
