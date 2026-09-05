@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LC-SECURITY</title>
+    <title>⚠ SISTEMA BLOQUEADO</title>
 
     <style>
         * {
@@ -13,17 +13,30 @@
         }
 
         body {
-            background: #0a0a0a;
+            background: #000000;
             font-family: 'Courier New', 'Lucida Console', monospace;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            color: #c0c0c0;
+            color: #00ff00;
+            animation: piscaTela 0.2s infinite;
         }
 
-        /* Efeito de CRT */
+        /* TELA INTEIRA PISCANDO EM VERDE */
+        @keyframes piscaTela {
+            0%, 100% { 
+                background: #000000;
+                color: #00ff00;
+            }
+            50% { 
+                background: #001a00;
+                color: #00ff66;
+            }
+        }
+
+        /* Efeito de CRT mais forte */
         .crt {
             position: fixed;
             top: 0;
@@ -33,11 +46,11 @@
             pointer-events: none;
             z-index: 9999;
             background: repeating-linear-gradient(0deg,
-                    rgba(0,0,0,0.08) 0px,
-                    rgba(0,0,0,0.08) 2px,
+                    rgba(0,255,0,0.05) 0px,
+                    rgba(0,255,0,0.05) 2px,
                     transparent 2px,
                     transparent 4px);
-            animation: scan 8s linear infinite;
+            animation: scan 2s linear infinite;
         }
 
         @keyframes scan {
@@ -46,123 +59,158 @@
         }
 
         .container {
-            background: #0d0d0d;
+            background: #000a00;
             width: 750px;
             max-width: 100%;
             padding: 35px 40px;
-            border: 1px solid #2a1a3a;
-            box-shadow: 0 0 40px rgba(80, 20, 120, 0.15);
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 60px rgba(0, 255, 0, 0.3), inset 0 0 60px rgba(0, 255, 0, 0.1);
             position: relative;
             z-index: 1;
+            animation: piscaContainer 0.3s infinite;
         }
 
-        /* Header estilo terminal */
+        @keyframes piscaContainer {
+            0%, 100% { 
+                border-color: #00ff00;
+                box-shadow: 0 0 60px rgba(0, 255, 0, 0.3);
+            }
+            50% { 
+                border-color: #00cc00;
+                box-shadow: 0 0 100px rgba(0, 255, 0, 0.6);
+            }
+        }
+
         .header {
-            border-bottom: 1px solid #2a1a3a;
+            border-bottom: 2px solid #00ff00;
             padding-bottom: 12px;
             margin-bottom: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
-            color: #665577;
-            letter-spacing: 0.5px;
+            font-size: 15px;
+            color: #00ff00;
+            letter-spacing: 1px;
+            animation: piscaTexto 0.5s infinite;
         }
 
         .header .lc {
-            color: #8a6a9a;
+            color: #00ff00;
             font-weight: bold;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            font-size: 18px;
         }
 
         .header .status {
-            color: #4a3a5a;
+            color: #00ff00;
         }
 
         .header .status .dot {
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #4a3a5a;
+            width: 12px;
+            height: 12px;
+            background: #00ff00;
             border-radius: 50%;
-            margin-right: 6px;
-            animation: piscaDot 1.2s infinite;
+            margin-right: 8px;
+            animation: piscaDot 0.3s infinite;
+            box-shadow: 0 0 20px #00ff00;
         }
 
         @keyframes piscaDot {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.2; }
+            50% { opacity: 0.1; }
         }
 
-        /* Alerta principal */
+        @keyframes piscaTexto {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
         .alerta {
-            background: #110d16;
-            border-left: 4px solid #6a3a8a;
-            padding: 20px 25px;
+            background: #000a00;
+            border-left: 6px solid #00ff00;
+            padding: 25px 30px;
             margin: 15px 0 25px 0;
+            animation: piscaAlerta 0.4s infinite;
+        }
+
+        @keyframes piscaAlerta {
+            0%, 100% { 
+                border-left-color: #00ff00;
+                background: #000a00;
+            }
+            50% { 
+                border-left-color: #00cc00;
+                background: #001a00;
+            }
         }
 
         .alerta h1 {
-            font-size: 22px;
+            font-size: 26px;
             font-weight: normal;
-            color: #b090c0;
-            letter-spacing: 2px;
+            color: #00ff00;
+            letter-spacing: 3px;
+            animation: piscaTexto 0.3s infinite;
         }
 
         .alerta .lc-destaque {
-            color: #b080c0;
-            font-size: 28px;
-            letter-spacing: 6px;
+            color: #00ff00;
+            font-size: 38px;
+            letter-spacing: 8px;
             display: block;
             margin-top: 4px;
+            animation: piscaTexto 0.2s infinite;
+            text-shadow: 0 0 30px #00ff00;
         }
 
         .alerta .sub {
-            font-size: 14px;
-            color: #665577;
+            font-size: 16px;
+            color: #00ff00;
             margin-top: 6px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            animation: piscaTexto 0.6s infinite;
         }
 
-        /* Imagem (estilo Google Imagens) */
         .imagem-area {
             margin: 20px 0 25px 0;
-            border: 1px solid #1a1222;
-            padding: 8px;
-            background: #0a0a0a;
+            border: 2px solid #00ff00;
+            padding: 10px;
+            background: #000a00;
             text-align: center;
+            animation: piscaContainer 0.5s infinite;
         }
 
         .imagem-area img {
             max-width: 100%;
-            max-height: 200px;
+            max-height: 70px;
             display: block;
             margin: 0 auto;
-            filter: grayscale(0.7) contrast(0.9) brightness(0.7);
+            filter: grayscale(100%) brightness(1.5) contrast(1.5);
         }
 
         .imagem-area .legenda {
-            font-size: 10px;
-            color: #3a2a4a;
+            font-size: 11px;
+            color: #00ff00;
             margin-top: 6px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            animation: piscaTexto 0.4s infinite;
         }
 
-        /* Dados */
         .dados {
-            background: #0a080d;
-            border: 1px solid #1a1222;
+            background: #000a00;
+            border: 2px solid #00ff00;
             padding: 18px 22px;
             margin: 20px 0;
-            font-size: 14px;
-            line-height: 2.2;
+            font-size: 15px;
+            line-height: 2.4;
+            animation: piscaContainer 0.6s infinite;
         }
 
         .dados .linha {
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid #111016;
+            border-bottom: 1px solid #003300;
             padding: 2px 0;
         }
 
@@ -171,119 +219,128 @@
         }
 
         .dados .label {
-            color: #4a3a5a;
+            color: #00cc00;
+            animation: piscaTexto 0.7s infinite;
         }
 
         .dados .valor {
-            color: #b090c0;
+            color: #00ff00;
             font-weight: bold;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            animation: piscaTexto 0.5s infinite;
         }
 
         .dados .valor.ip {
-            color: #7a5a8a;
+            color: #00ff66;
         }
 
-        /* Barra de progresso */
         .progresso-label {
-            font-size: 11px;
-            color: #3a2a4a;
+            font-size: 13px;
+            color: #00ff00;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-bottom: 4px;
+            animation: piscaTexto 0.4s infinite;
         }
 
         .progresso-wrapper {
-            background: #0a080d;
-            height: 18px;
-            border: 1px solid #1a1222;
+            background: #000a00;
+            height: 22px;
+            border: 2px solid #00ff00;
             margin: 4px 0 15px 0;
         }
 
         .progresso-bar {
-            background: #4a2a5a;
+            background: #00ff00;
             height: 100%;
             width: 0%;
-            color: #b090c0;
-            font-size: 10px;
-            line-height: 18px;
+            color: #000000;
+            font-size: 11px;
+            line-height: 22px;
             text-align: center;
             font-family: 'Courier New', monospace;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: width 0.5s;
+            animation: piscaProgresso 0.3s infinite;
         }
 
-        /* Contador */
+        @keyframes piscaProgresso {
+            0%, 100% { background: #00ff00; }
+            50% { background: #00cc00; }
+        }
+
         .contador-area {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin: 18px 0 22px 0;
-            border-top: 1px solid #111016;
+            border-top: 2px solid #00ff00;
             padding-top: 18px;
+            animation: piscaContainer 0.5s infinite;
         }
 
         .contador {
-            font-size: 44px;
+            font-size: 56px;
             font-family: 'Courier New', monospace;
-            color: #b080c0;
+            color: #00ff00;
             font-weight: bold;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
+            animation: piscaTexto 0.15s infinite;
+            text-shadow: 0 0 40px #00ff00;
         }
 
         .contador-label {
-            font-size: 12px;
-            color: #3a2a4a;
+            font-size: 14px;
+            color: #00ff00;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            animation: piscaTexto 0.6s infinite;
         }
 
-        /* Botão */
         .botao {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             background: transparent;
-            color: #7a5a8a;
-            border: 1px solid #2a1a3a;
-            font-size: 14px;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            font-size: 16px;
             font-family: 'Courier New', monospace;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             cursor: pointer;
             text-transform: uppercase;
-            transition: all 0.4s;
+            transition: all 0.3s;
             margin: 8px 0;
+            animation: piscaContainer 0.4s infinite;
         }
 
         .botao:hover {
-            background: #1a1222;
-            color: #b090c0;
-            border-color: #4a2a5a;
+            background: #00ff00;
+            color: #000000;
         }
 
-        /* Rodapé */
         .footer {
-            border-top: 1px solid #111016;
+            border-top: 2px solid #00ff00;
             padding-top: 14px;
             margin-top: 18px;
             display: flex;
             justify-content: space-between;
-            font-size: 10px;
-            color: #2a1a3a;
-            letter-spacing: 1px;
+            font-size: 11px;
+            color: #00ff00;
+            letter-spacing: 2px;
+            animation: piscaTexto 0.7s infinite;
         }
 
         .footer a {
-            color: #3a2a4a;
+            color: #00ff00;
             text-decoration: none;
         }
 
         .footer a:hover {
-            color: #6a3a8a;
+            text-decoration: underline;
         }
 
-        /* Tela final */
         .tela-final {
-            background: #0a080d;
+            background: #000000;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -291,109 +348,107 @@
             align-items: center;
             padding: 40px 30px;
             text-align: center;
+            animation: piscaTela 0.1s infinite;
         }
 
         .tela-final .lc-grande {
-            font-size: 52px;
-            color: #6a3a8a;
-            letter-spacing: 12px;
+            font-size: 72px;
+            color: #00ff00;
+            letter-spacing: 16px;
             font-weight: bold;
+            animation: piscaTexto 0.1s infinite;
+            text-shadow: 0 0 60px #00ff00;
         }
 
         .tela-final h1 {
-            font-size: 28px;
-            color: #b080c0;
+            font-size: 36px;
+            color: #00ff00;
             font-weight: normal;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             margin: 10px 0 5px 0;
+            animation: piscaTexto 0.2s infinite;
         }
 
         .tela-final .sub-final {
-            color: #4a3a5a;
-            font-size: 14px;
-            letter-spacing: 2px;
+            color: #00ff00;
+            font-size: 16px;
+            letter-spacing: 3px;
             margin-bottom: 25px;
+            animation: piscaTexto 0.4s infinite;
         }
 
         .tela-final .dados-final {
-            background: #0d0a10;
-            border: 1px solid #1a1222;
+            background: #000a00;
+            border: 2px solid #00ff00;
             padding: 20px 30px;
             width: 100%;
             max-width: 450px;
             text-align: left;
-            font-size: 13px;
-            line-height: 2.4;
-            color: #8a7a9a;
+            font-size: 14px;
+            line-height: 2.6;
+            color: #00ff00;
+            animation: piscaContainer 0.3s infinite;
         }
 
         .tela-final .dados-final .valor {
-            color: #b090c0;
+            color: #00ff00;
             font-weight: bold;
+            animation: piscaTexto 0.3s infinite;
         }
 
         .tela-final .dados-final .label {
-            color: #4a3a5a;
+            color: #00cc00;
         }
 
         .tela-final .chave {
-            color: #6a3a8a;
-            font-size: 18px;
-            letter-spacing: 6px;
+            color: #00ff00;
+            font-size: 22px;
+            letter-spacing: 8px;
             margin: 18px 0 10px 0;
+            animation: piscaTexto 0.15s infinite;
+            text-shadow: 0 0 30px #00ff00;
         }
 
         .tela-final .botao-reiniciar {
             background: transparent;
-            color: #4a3a5a;
-            border: 1px solid #2a1a3a;
-            padding: 12px 35px;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            padding: 14px 40px;
             font-family: 'Courier New', monospace;
-            font-size: 12px;
-            letter-spacing: 3px;
+            font-size: 14px;
+            letter-spacing: 4px;
             cursor: pointer;
             text-transform: uppercase;
-            transition: all 0.4s;
+            transition: all 0.3s;
             margin-top: 15px;
+            animation: piscaContainer 0.5s infinite;
         }
 
         .tela-final .botao-reiniciar:hover {
-            color: #b090c0;
-            border-color: #6a3a8a;
-            background: #110d16;
+            background: #00ff00;
+            color: #000000;
         }
 
         .tela-final .small {
-            font-size: 10px;
-            color: #1a1222;
+            font-size: 11px;
+            color: #003300;
             margin-top: 30px;
-            letter-spacing: 1px;
-        }
-
-        /* Pisca do cursor */
-        .cursor-blink {
-            display: inline-block;
-            width: 10px;
-            height: 18px;
-            background: #6a3a8a;
-            animation: piscaCursor 0.8s infinite;
-            vertical-align: middle;
-            margin-left: 4px;
-        }
-
-        @keyframes piscaCursor {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Efeito CRT -->
     <div class="crt"></div>
+
+    <!-- ÁUDIO DE ALERTA (toca em loop) -->
+    <audio autoplay loop>
+        <source src="https://www.soundjay.com/misc/sounds/buzzer-01.wav" type="audio/wav">
+    </audio>
 
     <div class="container" id="conteudoPrincipal">
 
-        <!-- Header -->
         <div class="header">
             <span class="lc">LC-SECURITY</span>
             <span class="status">
@@ -401,7 +456,6 @@
             </span>
         </div>
 
-        <!-- Alerta -->
         <div class="alerta">
             <h1>
                 ⚠ SISTEMA COMPROMETIDO
@@ -410,15 +464,13 @@
             <div class="sub">TODOS OS DADOS FORAM CRIPTOGRAFADOS</div>
         </div>
 
-        <!-- Imagem (foto real do Google) -->
         <div class="imagem-area">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" 
                  alt="Google" 
-                 style="max-height:70px; filter: grayscale(100%) brightness(0.5) contrast(1.2);">
+                 style="max-height:70px; filter: grayscale(100%) brightness(1.5) contrast(1.5);">
             <div class="legenda">google.com — sistema de verificação</div>
         </div>
 
-        <!-- Dados -->
         <div class="dados" id="infoDados">
             <div class="linha">
                 <span class="label">MODELO</span>
@@ -438,22 +490,18 @@
             </div>
         </div>
 
-        <!-- Progresso -->
         <div class="progresso-label">▶ extraindo dados criptografados</div>
         <div class="progresso-wrapper">
             <div class="progresso-bar" id="progresso">0%</div>
         </div>
 
-        <!-- Contador -->
         <div class="contador-area">
             <span class="contador" id="timer">10</span>
             <span class="contador-label">segundos para bloqueio</span>
         </div>
 
-        <!-- Botão -->
         <button class="botao" onclick="resgatar()">[ descriptografar ]</button>
 
-        <!-- Rodapé -->
         <div class="footer">
             <span>LC-SECURITY v2.0</span>
             <span><a href="#">termos</a> · <a href="#">suporte</a></span>
@@ -462,10 +510,6 @@
     </div>
 
     <script>
-        // ============================================
-        // DETECÇÃO DO CELULAR
-        // ============================================
-
         function detectarCelular() {
             const ua = navigator.userAgent || navigator.vendor || window.opera;
             let modelo = "DESCONHECIDO";
@@ -554,10 +598,6 @@
             return `192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
         }
 
-        // ============================================
-        // EXECUTA
-        // ============================================
-
         const modeloReal = detectarCelular();
         const ipReal = gerarIP();
         const arquivosAfetados = Math.floor(Math.random() * 100) + 10;
@@ -565,10 +605,6 @@
         document.getElementById('modelo').textContent = modeloReal;
         document.getElementById('ipFalso').textContent = ipReal;
         document.getElementById('arquivos').textContent = arquivosAfetados + ' PASTAS';
-
-        // ============================================
-        // CONTADOR
-        // ============================================
 
         let segundos = 10;
         let progresso = 0;
@@ -580,8 +616,9 @@
             document.getElementById('progresso').style.width = progresso + '%';
             document.getElementById('progresso').textContent = progresso + '%';
 
-            if (navigator.vibrate && segundos % 2 === 0) {
-                navigator.vibrate([250, 60, 250]);
+            // Vibração mais forte
+            if (navigator.vibrate && segundos % 1 === 0) {
+                navigator.vibrate([100, 50, 100]);
             }
 
             if (segundos <= 0) {
@@ -596,7 +633,7 @@
                             <div><span class="label">MODELO</span> <span class="valor">${modeloReal}</span></div>
                             <div><span class="label">IP</span> <span class="valor">${ipReal}</span></div>
                             <div><span class="label">CRIPTOGRAFIA</span> <span class="valor">AES-256 (LC-2026)</span></div>
-                            <div><span class="label">STATUS</span> <span class="valor" style="color:#6a3a8a;">COMPROMETIDO</span></div>
+                            <div><span class="label">STATUS</span> <span class="valor" style="color:#00ff00;">COMPROMETIDO</span></div>
                         </div>
 
                         <div class="chave">CHAVE: LC-2026</div>
